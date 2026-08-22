@@ -32,21 +32,30 @@ const int MAXN = 2e5 + 5;
 ll gcd(ll a, ll b) { return b ? gcd(b, a % b) : a; }
 ll lcm(ll a, ll b) { return a / gcd(a, b) * b; }
 
-int fib(int n) {
-    if(n<=1) return n;
-
-    int res = fib(n-1) + fib(n-2);
-
-    cout<<res<<endl;
-
-    return res;
-}
-
 int main(){
 
     fast_io;
 
-    cout<<fib(5);
+    int n, m;
+    cin >> n >> m;
+
+    vector<int> arr(n);
+    for(int i=0; i<n; i++) cin >> arr[i];
+
+    vector<int> search(m);
+    for(int i=0; i<m; i++) cin >> search[i];
+
+    for(auto it: search){
+        if(arr.empty()) break;
+        for(int i=0; i<arr.size(); i++){
+            if(arr[i] == it){
+                arr.erase(arr.begin() + i);
+                break;
+            }
+        }
+    }
+
+    for(auto it: arr) cout << it << " ";
 
     return 0;
 }

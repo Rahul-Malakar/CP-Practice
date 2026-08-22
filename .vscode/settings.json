@@ -53,6 +53,11 @@
         "list": "cpp",
         "xhash": "cpp",
         "*.tcc": "cpp",
-        "deque": "cpp"
+        "deque": "cpp",
+        "array": "cpp",
+        "forward_list": "cpp",
+        "unordered_set": "cpp",
+        "regex": "cpp",
+        "valarray": "cpp"
     }
 }

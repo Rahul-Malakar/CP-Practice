@@ -32,21 +32,26 @@ const int MAXN = 2e5 + 5;
 ll gcd(ll a, ll b) { return b ? gcd(b, a % b) : a; }
 ll lcm(ll a, ll b) { return a / gcd(a, b) * b; }
 
-int fib(int n) {
-    if(n<=1) return n;
-
-    int res = fib(n-1) + fib(n-2);
-
-    cout<<res<<endl;
-
-    return res;
-}
-
 int main(){
 
     fast_io;
 
-    cout<<fib(5);
+    int N;
+    cin >> N;
+    vector<long long> A(N+1);
+    for (long long i = 1; i <= N; i++) cin >> A[i];
 
+    unordered_map<long long, long long> freq;
+    long long ans = 0;
+
+    for (long long j = 1; j <= N; j++) {
+        long long k2 = j - A[j];
+        if (freq.count(k2)) ans += freq[k2];
+
+        long long k1 = j + A[j];
+        freq[k1]++;
+    }
+
+    cout << ans << endl;
     return 0;
 }

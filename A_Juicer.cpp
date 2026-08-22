@@ -32,21 +32,30 @@ const int MAXN = 2e5 + 5;
 ll gcd(ll a, ll b) { return b ? gcd(b, a % b) : a; }
 ll lcm(ll a, ll b) { return a / gcd(a, b) * b; }
 
-int fib(int n) {
-    if(n<=1) return n;
-
-    int res = fib(n-1) + fib(n-2);
-
-    cout<<res<<endl;
-
-    return res;
-}
-
 int main(){
 
     fast_io;
 
-    cout<<fib(5);
+    vector<int> arr = {6,1,2,4,7,4,2,6,6,8,7,5,4,2,5,6,7}; 
+
+    int maxi = -1;
+
+    for(auto it: arr){
+        maxi = max(maxi, it);
+    }
+
+    vector<int> counts(maxi+1);
+
+    for(auto it: arr){
+        counts[it] +=1;
+    }
+
+    for(int i=1; i<counts.size(); i++){
+        for(int j=0; j<counts[i]; j++){
+            cout<<i<<endl;
+        }
+    }
+
 
     return 0;
 }
